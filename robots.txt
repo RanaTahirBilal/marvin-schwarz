@@ -1,0 +1,5 @@
+# While this site lives on github.io it is kept out of search results, so that the
+# client's own domain is the one that ranks when it moves. To publish it: change the
+# line below to Allow: / and delete the robots meta tag in index.html and 404.html.
+User-agent: *
+Disallow: /
