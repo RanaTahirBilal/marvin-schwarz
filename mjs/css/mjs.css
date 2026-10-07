@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Marvin J. Schwarz, MD, JD. Written for this site, loaded last so it wins.
+   Built on the MegaOne digital-creative demo's vendor stack only: the demo's
+   own stylesheet is not used, because its geometry fights a text led page.
+
+   Colour, with the measured ratio beside each so nobody has to guess:
+     --mj-ink      #171A1D   16.93 on paper
+     --mj-mut      #4E5257    7.73 on paper
+     --mj-acc      #7A3B2E    rules, bands and figures of 24px and over only
+     --mj-acc-ink  #6B3327    8.27 on paper, safe for small text on light
+     --mj-acc-lift #E8B4A2    8.02 on ink, safe for small text on dark
+   ========================================================================== */
+:root{
+  --mj-paper:#F7F5F1;
+  --mj-paper-2:#EFEBE4;
+  --mj-ink:#171A1D;
+  --mj-ink-2:#22262A;
+  --mj-mut:#4E5257;
+  --mj-acc:#7A3B2E;
+  --mj-acc-ink:#6B3327;
+  --mj-acc-lift:#E8B4A2;
+  --mj-line:rgba(23,26,29,.14);
+  --mj-serif:"Lora",Georgia,"Times New Roman",serif;
+  --mj-sans:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--mj-paper);color:var(--mj-ink);
+  font-family:var(--mj-sans);font-size:17px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--mj-acc-ink)}
+.mj-w{max-width:1120px;margin:0 auto;padding:0 28px}
+.mj-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--mj-acc);outline-offset:3px}
+
+/* eyebrow. No trailing rule, no dash: a chevron or nothing. */
+.mj-eyebrow{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mj-acc-ink);font-weight:600;margin:0 0 14px}
+h1,h2,h3{font-family:var(--mj-serif);font-weight:600;letter-spacing:-.01em;margin:0}
+h2{font-size:38px;line-height:1.22}
+h3{font-size:21px;line-height:1.35}
+p{margin:0 0 20px}
+.mj-lede{font-size:20px;line-height:1.7}
+
+/* nav */
+.mj-nav{position:sticky;top:0;z-index:60;background:rgba(247,245,241,.94);
+  backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--mj-line)}
+.mj-nav .mj-w{display:flex;align-items:center;justify-content:space-between;
+  min-height:68px;gap:20px}
+.mj-brand{font-family:var(--mj-serif);font-size:18px;font-weight:600;color:var(--mj-ink);
+  text-decoration:none;white-space:nowrap}
+.mj-brand span{color:var(--mj-acc-ink);font-size:13px;letter-spacing:.1em;
+  font-family:var(--mj-sans);font-weight:600;margin-left:8px}
+.mj-links{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.mj-links a{color:var(--mj-mut);text-decoration:none;font-size:15px;font-weight:600}
+.mj-links a:hover{color:var(--mj-acc-ink)}
+.mj-navcta{background:var(--mj-acc);color:#fff;padding:9px 20px;border-radius:2px;
+  text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap}
+.mj-navcta:hover{background:var(--mj-acc-ink);color:#fff}
+/* Below 900px the links used to be display:none with no menu in their place, which
+   left a phone with no navigation at all and made the contrast harness report three
+   HIDDEN items. They now wrap onto a second row instead. No toggle, no script. */
+@media(max-width:900px){
+  .mj-nav .mj-w{flex-wrap:wrap;padding-top:12px;padding-bottom:12px;min-height:0}
+  .mj-brand{order:1}
+  .mj-navcta{order:2}
+  .mj-links{order:3;width:100%;gap:20px;justify-content:flex-start;padding-top:10px;
+    border-top:1px solid var(--mj-line);margin-top:10px;flex-wrap:wrap}
+  .mj-links a{font-size:14px}
+}
+@media(max-width:420px){.mj-links{gap:14px}.mj-links a{font-size:13.5px}}
+
+/* hero. Image 02 puts him in the right third, so the copy sits left.
+   The left half of that photograph is a pale sunlit wall, so light text on it
+   measured 1.41:1. Rather than drown a warm photograph in a 70 percent black
+   scrim to rescue white type, the wash goes the other way: a paper coloured
+   gradient over the left, and the type is ink. Measured after the change at
+   the foot of this block. */
+.mj-hero{position:relative;background:var(--mj-paper)}
+.mj-hero img{width:100%;height:auto;display:block}
+.mj-hero .mj-overlay{position:absolute;inset:0;display:flex;align-items:center;
+  background:linear-gradient(90deg,
+    rgba(247,245,241,.97) 0%,
+    rgba(247,245,241,.95) 34%,
+    rgba(247,245,241,.80) 46%,
+    rgba(247,245,241,0) 62%)}
+.mj-hero .mj-w{width:100%}
+.mj-hero-box{max-width:520px}
+.mj-hero h1{font-size:50px;line-height:1.1;color:var(--mj-ink);margin-bottom:18px}
+.mj-hero .mj-kick{color:var(--mj-acc-ink);font-size:13px;letter-spacing:.2em;
+  text-transform:uppercase;font-weight:700;margin:0 0 16px}
+.mj-hero p{color:var(--mj-mut);font-size:19px;line-height:1.65;margin-bottom:26px}
+.mj-btn{display:inline-block;background:var(--mj-acc);color:#fff;text-decoration:none;
+  padding:14px 30px;border-radius:2px;font-weight:600;font-size:16px;border:0;cursor:pointer}
+.mj-btn:hover{background:#8E4535;color:#fff}
+/* Between 861 and 1200 the photograph shrinks but the copy does not, so the
+   paragraph ran past the strong part of the wash and measured 3.54:1. The wash
+   holds further right at these widths and the box is capped. */
+@media(max-width:1200px){
+  .mj-hero .mj-overlay{background:linear-gradient(90deg,
+    rgba(247,245,241,.985) 0%,
+    rgba(247,245,241,.975) 52%,
+    rgba(247,245,241,.88) 64%,
+    rgba(247,245,241,0) 80%)}
+  .mj-hero-box{max-width:460px}
+}
+@media(max-width:1100px){.mj-hero h1{font-size:40px}.mj-hero p{font-size:17px}}
+@media(max-width:860px){
+  /* Below this width the photograph fills the whole frame, so no gradient can be
+     trusted. The copy moves out from under the picture entirely. */
+  .mj-hero .mj-overlay{position:static;background:var(--mj-paper);padding:44px 0 50px}
+  .mj-hero-box{max-width:none}
+  .mj-hero h1{font-size:34px}
+}
+
+/* generic band */
+.mj-band{padding:92px 0}
+.mj-band-2{background:var(--mj-paper-2)}
+.mj-band-ink{background:var(--mj-ink);color:#E7E4DF}
+.mj-band-ink h2{color:#fff}
+.mj-band-ink .mj-eyebrow{color:var(--mj-acc-lift)}
+.mj-band-ink p{color:#D7D3CD}
+@media(max-width:700px){.mj-band{padding:62px 0}h2{font-size:30px}}
+
+/* two column split */
+.mj-split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.mj-split.mj-narrow{grid-template-columns:5fr 6fr}
+@media(max-width:860px){.mj-split,.mj-split.mj-narrow{grid-template-columns:1fr;gap:28px}}
+
+/* the two professions */
+.mj-pair{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:52px}
+.mj-pair figure{margin:0}
+.mj-pair img{border-radius:2px}
+.mj-pair h3{margin:22px 0 10px}
+.mj-pair p{color:var(--mj-mut);margin:0}
+.mj-band-ink .mj-pair p{color:#D7D3CD}
+@media(max-width:860px){.mj-pair{grid-template-columns:1fr;gap:36px}}
+
+/* the record */
+.mj-record{list-style:none;margin:44px 0 0;padding:0}
+.mj-record li{display:grid;grid-template-columns:minmax(210px,290px) 1fr;gap:12px 40px;
+  padding:24px 0;border-top:1px solid var(--mj-line);align-items:baseline}
+.mj-record li:last-child{border-bottom:1px solid var(--mj-line)}
+.mj-record b{font-family:var(--mj-serif);font-size:19px;font-weight:600;line-height:1.35}
+.mj-record span{color:var(--mj-mut)}
+@media(max-width:760px){.mj-record li{grid-template-columns:1fr;gap:6px}}
+
+/* credentials */
+.mj-creds{display:grid;grid-template-columns:1fr 1fr;gap:52px;margin-top:46px}
+.mj-creds h3{font-family:var(--mj-sans);font-size:12.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--mj-acc-ink);margin:0 0 24px;font-weight:700}
+.mj-list{list-style:none;margin:0;padding:0}
+.mj-list li{position:relative;padding:0 0 20px 26px;font-size:17px;line-height:1.5}
+.mj-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;
+  background:var(--mj-acc);border-radius:1px}
+.mj-list small{display:block;color:var(--mj-mut);font-size:14.5px;line-height:1.6;margin-top:4px}
+@media(max-width:760px){.mj-creds{grid-template-columns:1fr;gap:40px}}
+
+/* gallery */
+/* figure had overflow:hidden with the image at height:100%, which let the grid row
+   stretch the picture over the caption and clip it. Every caption was invisible. */
+.mj-gal{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 14px;margin-top:46px}
+.mj-gal figure{margin:0}
+.mj-gal img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:2px}
+.mj-gal figcaption{font-size:13.5px;color:var(--mj-mut);margin-top:8px;line-height:1.45}
+.mj-band-ink .mj-gal figcaption{color:#C9C5BF}
+@media(max-width:900px){.mj-gal{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.mj-gal{grid-template-columns:1fr}}
+
+/* figures */
+.mj-figs{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
+.mj-figs .n{font-family:var(--mj-serif);font-size:54px;line-height:1;color:var(--mj-acc);
+  display:block;margin-bottom:12px;font-weight:600}
+.mj-band-ink .mj-figs .n{color:var(--mj-acc-lift)}
+.mj-figs p{color:var(--mj-mut);margin:0;font-size:16px}
+.mj-band-ink .mj-figs p{color:#D7D3CD}
+@media(max-width:700px){.mj-figs{grid-template-columns:1fr;gap:34px}}
+
+/* contact */
+.mj-form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mj-form .full{grid-column:1 / -1}
+.mj-form label{display:block;font-size:14px;font-weight:600;margin-bottom:7px;
+  color:var(--mj-ink)}
+.mj-form input,.mj-form textarea{width:100%;padding:13px 15px;border:1px solid #B9B4AC;
+  border-radius:2px;background:#fff;font:inherit;font-size:16px;color:var(--mj-ink)}
+.mj-form textarea{min-height:140px;resize:vertical}
+.mj-form input:focus,.mj-form textarea:focus{border-color:var(--mj-acc);outline:none;
+  box-shadow:0 0 0 3px rgba(122,59,46,.18)}
+.mj-honey{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.mj-contact-aside p{color:var(--mj-mut)}
+.mj-contact-aside .mj-where{font-family:var(--mj-serif);font-size:19px;color:var(--mj-ink);
+  margin-bottom:6px}
+@media(max-width:700px){.mj-form{grid-template-columns:1fr}}
+
+/* disclosure and footer */
+.mj-note{background:var(--mj-paper-2);border-left:3px solid var(--mj-acc);
+  padding:22px 26px;margin:0;color:var(--mj-mut);font-size:15.5px;line-height:1.7}
+.mj-foot{background:var(--mj-ink);color:#C9C5BF;padding:46px 0;font-size:15px}
+.mj-foot a{color:var(--mj-acc-lift)}
+.mj-foot .mj-credit{margin:14px 0 0;font-size:13.5px;color:#A9A49D}
+.mj-foot .mj-credit a{color:#C9C5BF;text-decoration:underline;text-underline-offset:3px}
+
+/* The portrait sits in the left column of the practice band, which was otherwise
+   an empty half on a wide screen. */
+.mj-portrait{margin-top:30px;border-radius:2px;max-width:340px}
+@media(max-width:860px){.mj-portrait{max-width:260px;margin-top:22px}}
